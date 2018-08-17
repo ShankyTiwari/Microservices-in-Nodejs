@@ -1,0 +1,16 @@
+{
+  "name": "apigateway",
+  "version": "1.0.0",
+  "description": "Demo of API Gate for Micro Services",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Shashank Tiwari",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-http-proxy": "^1.2.0"
+  }
+}
