@@ -1,5 +1,5 @@
-# Order Service
-As the title reads, This service will demonstrate the order related APIs.
+# User Service
+As the title suggests, This service will demonstrate the user related APIs.
 
 
 ## Installation 

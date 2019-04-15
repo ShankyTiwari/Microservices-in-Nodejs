@@ -1,19 +1,29 @@
 {
-  "name": "orderservice",
+  "name": "userservice",
   "version": "1.0.0",
-  "description": "To manage the Order oprations",
-  "main": "server.js",
+  "description": "This is a service to manage Order API",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js",
+    "lint": "eslint"
   },
-  "author": "Shashank Tiwari",
+  "author": "Iosys Pvt Ltd",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "dotenv": "^7.0.0",
     "express": "^4.16.3",
-    "mongodb": "^3.1.3"
+    "express-jwt": "^5.3.1",
+    "mongodb": "^3.1.3",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.1"
   }
 }

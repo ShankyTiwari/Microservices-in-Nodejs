@@ -1,36 +1,28 @@
-/*
-* Building Micro Services in Nodejs
-* @author Shashank Tiwari
-*/
-'use strict';
-
-
-/*requiring mongodb node modules */
 const mongodb = require('mongodb');
-const assert = require('assert');
+const redis = require('redis');
 
-class DB{
+class MongoDB {
+  constructor() {
+    this.mongoClient = mongodb.MongoClient;
+    this.ObjectID = mongodb.ObjectID;
+  }
 
-	constructor(){
-		this.mongoClient = mongodb.MongoClient;
-		this.ObjectID = mongodb.ObjectID;
-	}
-
-	onConnect(){
-		return new Promise( (resolve, reject) => {
-			this.mongoClient.connect(
-				`mongodb://127.0.0.1:27017/products`, {
-					useNewUrlParser: true
-				},
-				(err, client) => {
-				if (err) {
-					reject(err);
-				} else {
-					assert.equal(null, err);
-					resolve([client.db('products'), this.ObjectID, client]);
-				}
-			});
-		});
-	}
+  onConnect() {
+    return new Promise((resolve, reject) => {
+      this.mongoClient.connect(
+        process.env.MONGODB_DB_URL, {
+          useNewUrlParser: true,
+        },
+        (err, client) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve([client.db('users'), this.ObjectID, client]);
+          }
+        },
+      );
+    });
+  }
 }
-module.exports = new DB();
+module.exports.MongoDB = new MongoDB();
+module.exports.redisClient = redis.createClient();

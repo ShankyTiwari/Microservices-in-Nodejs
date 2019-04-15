@@ -1,10 +1,10 @@
-class ExpressConfig{
-	
-	constructor(app){
-		// Setting .html as the default template extension
-		app.set('view engine', 'html');
+class ExpressConfig {
+  constructor(app) {
+    this.app = app;
+  }
 
-		// Add more config here
-	}
+  setAppEngine() {
+    this.app.set('view engine', 'html');
+  }
 }
 module.exports = ExpressConfig;
